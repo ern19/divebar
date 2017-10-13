@@ -39,7 +39,7 @@ const CocktailSchema = new Schema({
 })
 
 const UserSchema = {
-    name: {
+    userName: {
         type: String,
         required: true
     },
