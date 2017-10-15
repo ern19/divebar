@@ -5,14 +5,13 @@ import HomePage from './components/HomePage'
 import LoginPage from './components/LoginPage'
 import UserPage from './components/UserPage'
 import CocktailPage from './components/CocktailPage'
+import NavBar from "./components/NavBar"
 class App extends Component {
   render() {
     return (
       <Router>
       <div>
-        <div>
-          <Link to='/login'>Login</Link>
-        </div>
+        <NavBar />
         <Switch>
           <Route exact path="/" component={HomePage}/>
           <Route path="/login" component={LoginPage}/>

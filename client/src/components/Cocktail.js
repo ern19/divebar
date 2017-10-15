@@ -17,8 +17,8 @@ const Cocktail = (props) => {
     return (
         <div>
            <input onBlur={updateCocktail} onChange={handleChange} name="title" value={props.name} />
-           <input onBlur={updateCocktail} onChange={handleChange} name="Image Url" value={props.img} />
-           <input onBlur={updateCocktail} onChange={handleChange} name="Submitted by..." value={props.submittedBy} />
+           <input onBlur={updateCocktail} onChange={handleChange} name="img" value={props.img} />
+           <input onBlur={updateCocktail} onChange={handleChange} name="submittedBy" value={props.submittedBy} />
 
            <textarea onBlur={updateCocktail} onChange={handleChange} name="recipe" value={props.recipe} />
            <button onClick={deleteCocktail}>Dump it down the drain...</button>
