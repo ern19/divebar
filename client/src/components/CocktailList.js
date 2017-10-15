@@ -1,6 +1,6 @@
 import React from 'react';
 // import styled from "styled-components"
-import Cocktail from ("./cocktail")
+import Cocktail from "./Cocktail"
 
 const CocktailList = (props) => {
     return (
@@ -11,10 +11,10 @@ const CocktailList = (props) => {
                      handleChange={props.handleChange}
                      updateCocktail={props.updateCocktail}
                      deleteCocktail={props.deleteCocktail}
-                     name={submitted.name}
-                     recipe={submitted.recipe}
-                     img={submitted.img}
-                     submittedBy={submitted.submittedBy}/>
+                     name={submission.name}
+                     recipe={submission.recipe}
+                     img={submission.img}
+                     submittedBy={submission.submittedBy}/>
                  )
              })}
         </div>

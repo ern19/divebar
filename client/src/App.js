@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import HomePage from './components/HomePage'
 import LoginPage from './components/LoginPage'
 import UserPage from './components/UserPage'
-
+import CocktailPage from './components/CocktailPage'
 class App extends Component {
   render() {
     return (
@@ -16,7 +16,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={HomePage}/>
           <Route path="/login" component={LoginPage}/>
-          <Route path="/user/:userId" component={UserPage}/>
+          <Route path="/user/:userId" component={CocktailPage}/>
         </Switch>
       </div>
     </Router>
