@@ -11,7 +11,7 @@ class NewSubmissionForm extends Component {
             submittedBy: "",
         },
         redirectToUserPage: false,
-        
+        userId: this.props.userId
     }
 
     handleChange = (event) => {
@@ -28,13 +28,13 @@ class NewSubmissionForm extends Component {
         const res = await axios.post(`/api/users/${userId}/submitted`, {
             "submitted": this.state.newSubmission
         })
-        this.setState({redirectToUserPage: true})
+        this.setState({redirectToUserPage: true, userId: res.data._id})
     }
     
    
     render() {
         if (this.state.redirectToUserPage) {
-            return <Redirect to={`/user/${this.state.newUserId}`} />
+            return <Redirect to={`/user/${this.state.userId}`} />
         }
         return (
             <div>

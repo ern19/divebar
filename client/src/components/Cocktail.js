@@ -4,6 +4,7 @@ import {Card, CardMedia, CardTitle, CardHeader, CardText } from "material-ui/Car
 import RaisedButton from "material-ui/RaisedButton"
 
 const Cocktail = (props) => {
+    
     const deleteCocktail = () => {
         props.deleteCocktail(props._id)
     }
@@ -17,8 +18,9 @@ const Cocktail = (props) => {
     }
 
     return (
-        <Card>
-
+    
+          <Card>
+          
             <CardHeader> 
                 <input onBlur={updateCocktail} onChange={handleChange} name="submittedBy" value={props.submittedBy} />
             </CardHeader>
@@ -36,10 +38,8 @@ const Cocktail = (props) => {
             </CardText>
 
             <RaisedButton onClick={deleteCocktail}>Dump it down the drain...</RaisedButton>
-                
-            
-                
-        </Card>
+           </Card>                   
+       
     );
 };
 

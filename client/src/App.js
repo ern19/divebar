@@ -7,6 +7,7 @@ import LoginPage from './components/LoginPage'
 import UserPage from './components/UserPage'
 import CocktailPage from './components/CocktailPage'
 import NavBar from "./components/NavBar"
+import ExperimentalHomePage from "./components/ExperimentalHomePage"
 class App extends Component {
   render() {
     return ( 
@@ -15,7 +16,7 @@ class App extends Component {
           <div>
           <NavBar />
           <Switch>
-            <Route exact path="/" component={HomePage}/>
+            <Route exact path="/" component={ExperimentalHomePage}/>
             <Route path="/login" component={LoginPage}/>
             <Route path="/user/:userId" component={CocktailPage}/>
           </Switch>

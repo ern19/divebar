@@ -3,6 +3,7 @@ import axios from "axios"
 // import styled from "styled-components"
 import CocktailList from "./CocktailList"
 import NewSubmissionForm from "./NewSubmissionForm"
+
 class CocktailPage extends Component {
     state={
         user: {
@@ -16,6 +17,7 @@ class CocktailPage extends Component {
         const { userId } = this.props.match.params
         const res = await axios.get(`/api/users/${userId}`)
         this.setState({user: res.data})
+        console.log(this.state.user)
     }
 
     createNewCocktail = async () => {
@@ -53,6 +55,7 @@ class CocktailPage extends Component {
     }
 
     render() {
+        
         return (
             <div>
                 <div>
