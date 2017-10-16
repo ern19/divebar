@@ -23,15 +23,11 @@ const CocktailList = (props) => {
             >
              {props.submitted.map((submission) => {
                  return (
-                    <GridTile>
-                        <Cocktail key={submission._id} _id={submission._id} 
-                        handleChange={props.handleChange}
-                        updateCocktail={props.updateCocktail}
-                        deleteCocktail={props.deleteCocktail}
-                        name={submission.name}
-                        recipe={submission.recipe}
-                        img={submission.img}
-                        submittedBy={submission.submittedBy}/>
+                    <GridTile
+                        key={submission._id}
+                        title={submission.name}
+                    >
+                        <img src={submission.img} />
                     </GridTile>
                  )
              })}
@@ -41,3 +37,12 @@ const CocktailList = (props) => {
 };
 
 export default CocktailList;
+
+{/* <Cocktail key={submission._id} _id={submission._id} 
+                        handleChange={props.handleChange}
+                        updateCocktail={props.updateCocktail}
+                        deleteCocktail={props.deleteCocktail}
+                        title={submission.name}
+                        recipe={submission.recipe}
+                        img={submission.img}
+                        submittedBy={submission.submittedBy}/> */}

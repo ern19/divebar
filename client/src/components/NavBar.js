@@ -12,15 +12,41 @@ width: 90vw;
 height: 25px;
 border-bottom: 1px solid rgba(0,0,0,.0975);
 `
+const HeaderAnchor = styled.div`
+a{
+    text-decoration: none;
+    color: black;
+}
+
+`
+const SearchContainer = styled.div`
+background: #fafafa;
+border: 1px solid #dbdbdb;
+width: 25%;
+padding: 7px;
+border-radius: 3px;
+color: #999;
+svg{
+  margin-bottom: 5px;
+}
+input{
+  border: none;
+  font-weight: 300;
+  background: transparent;
+  text-align: center;
+}`
 
 const NavBar = () => {
 
     return (
         <Nav>
-            divebar.
-            <div>
-                <Link to="/">Main Page</Link>
-            </div>
+           
+            <HeaderAnchor>
+                <Link to="/">divebar.</Link>
+            </HeaderAnchor>
+            <SearchContainer>
+            <input type="text" placeholder="Search"/>
+            </SearchContainer>
             <div>
                 <Link to="/login">Log In</Link>
             </div>
