@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios"
 // import styled from "styled-components"
 import CocktailList from "./CocktailList"
-
+import NewSubmissionForm from "./NewSubmissionForm"
 class CocktailPage extends Component {
     state={
         user: {
@@ -20,9 +20,9 @@ class CocktailPage extends Component {
 
     createNewCocktail = async () => {
         const { userId } = this.props.match.params
-        const res = await axios.post(`/api/users/${userId}/submitted`)
+        const res = await axios.post(`/api/users/${userId}/submitted`, {})
         console.log(res.data)
-        this.setState({user: res.data})
+        // this.setState({user: res.data})
     }
 
     deleteCocktail = async (submissionId) => {
@@ -59,6 +59,7 @@ class CocktailPage extends Component {
                     <h1>{this.state.user.userName}'s Submissions</h1>
                     <button onClick={this.createNewCocktail}>New submission</button>
                 </div>
+                <NewSubmissionForm userId={this.props.match.params.userId}/>
                 <CocktailList submitted={this.state.user.submitted}
                     handleChange={this.handleChange}
                     deleteCocktail={this.deleteCocktail}

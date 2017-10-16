@@ -11,7 +11,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"nodemon server.js\" \"cd ./client  && npm start \" ",
     "postinstall": "cd client && npm install && npm run build"
-  
   },
   "repository": {
     "type": "git",
@@ -29,6 +28,7 @@
     "concurrently": "^3.5.0",
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
+    "material-ui": "^0.19.4",
     "mongoose": "^4.12.1"
   }
 }

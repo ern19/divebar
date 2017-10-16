@@ -34,7 +34,7 @@ const CocktailSchema = new Schema({
     },
     comments: {
         type: [CommentSchema],
-        required: true
+        
     }
 })
 

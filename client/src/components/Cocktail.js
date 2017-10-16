@@ -1,5 +1,7 @@
 import React from 'react';
 // import styled from "styled-components"
+import {Card, CardMedia, CardTitle, CardHeader, CardText } from "material-ui/Card"
+import RaisedButton from "material-ui/RaisedButton"
 
 const Cocktail = (props) => {
     const deleteCocktail = () => {
@@ -15,14 +17,29 @@ const Cocktail = (props) => {
     }
 
     return (
-        <div>
-           <input onBlur={updateCocktail} onChange={handleChange} name="title" value={props.name} />
-           <input onBlur={updateCocktail} onChange={handleChange} name="img" value={props.img} />
-           <input onBlur={updateCocktail} onChange={handleChange} name="submittedBy" value={props.submittedBy} />
+        <Card>
 
-           <textarea onBlur={updateCocktail} onChange={handleChange} name="recipe" value={props.recipe} />
-           <button onClick={deleteCocktail}>Dump it down the drain...</button>
-        </div>
+            <CardHeader> 
+                <input onBlur={updateCocktail} onChange={handleChange} name="submittedBy" value={props.submittedBy} />
+            </CardHeader>
+
+            <CardMedia>
+                <img src={props.img} onBlur={updateCocktail} onChange={handleChange} name="img"  />    
+            </CardMedia>
+
+            <CardTitle>
+                <input onBlur={updateCocktail} onChange={handleChange} name="title" value={props.name} />
+            </CardTitle>         
+               
+            <CardText>
+                <textarea onBlur={updateCocktail} onChange={handleChange} name="recipe" value={props.recipe} />
+            </CardText>
+
+            <RaisedButton onClick={deleteCocktail}>Dump it down the drain...</RaisedButton>
+                
+            
+                
+        </Card>
     );
 };
 
