@@ -16,6 +16,7 @@ const HeaderAnchor = styled.div`
 a{
     text-decoration: none;
     color: black;
+    font-size: 36px;
 }
 
 `

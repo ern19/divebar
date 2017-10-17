@@ -30,6 +30,7 @@
     "express": "^4.16.2",
     "material-ui": "^0.19.4",
     "mongoose": "^4.12.1",
+    "muicss": "^0.9.27",
     "react-router": "^4.2.0"
   }
 }

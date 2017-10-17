@@ -3,7 +3,11 @@ import axios from "axios"
 // import styled from "styled-components"
 import CocktailList from "./CocktailList"
 import NewSubmissionForm from "./NewSubmissionForm"
+import styled from "styled-components"
 
+const CenterContent = styled.div`
+    text-align: center;
+`
 class CocktailPage extends Component {
     state={
         user: {
@@ -57,17 +61,22 @@ class CocktailPage extends Component {
     render() {
         
         return (
-            <div>
+            <CenterContent>
+            
                 <div>
                     <h1>{this.state.user.userName}'s Submissions</h1>
                 </div>
-                <NewSubmissionForm userId={this.props.match.params.userId}/>
+                
+                   
+                    <NewSubmissionForm userId={this.props.match.params.userId}/>
+                
                 <CocktailList submitted={this.state.user.submitted}
                     handleChange={this.handleChange}
                     deleteCocktail={this.deleteCocktail}
                     updateCocktail={this.updateCocktail}
                 />
-            </div>
+            
+            </CenterContent>
         );
     }
 }

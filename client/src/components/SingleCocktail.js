@@ -34,15 +34,18 @@ class SingleCocktail extends Component {
             <div style={styles.card}>
                 
                 <Card>
-                    
+                    <CardHeader title="Submitted By:" subtitle={this.state.user.submittedBy}/>
                     <CardMedia
                     overlay={<CardTitle title={this.state.user.name} subtitle={this.state.user.recipe} />}
                     >
                     <img src={this.state.user.img} alt="" />
                     </CardMedia>
+                    
+                    
                     <CardActions>
+                        <RaisedButton link={this.state.user.recipeLink}>View the recipe</RaisedButton> <br /><br/>
                         <RaisedButton onClick={this.deleteCocktail}>Dump it down the drain...</RaisedButton> />
-                        <RaisedButton link={this.state.user.recipeLink}>View the recipe</RaisedButton>
+                        
                     </CardActions>
                 </Card>
             </div>
