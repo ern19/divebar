@@ -19,26 +19,26 @@ const Cocktail = (props) => {
 
     return (
     
-          <Card>
+          <div>
           
-            <CardHeader> 
+            
                 <input onBlur={updateCocktail} onChange={handleChange} name="submittedBy" value={props.submittedBy} />
-            </CardHeader>
+           
 
-            <CardMedia>
+            
                 <img src={props.img} onBlur={updateCocktail} onChange={handleChange} name="img"  />    
-            </CardMedia>
+            
 
-            <CardTitle>
+            
                 <input onBlur={updateCocktail} onChange={handleChange} name="title" value={props.name} />
-            </CardTitle>         
+                  
                
-            <CardText>
+           
                 <textarea onBlur={updateCocktail} onChange={handleChange} name="recipe" value={props.recipe} />
-            </CardText>
+           
 
             <RaisedButton onClick={deleteCocktail}>Dump it down the drain...</RaisedButton>
-           </Card>                   
+           </div>                   
        
     );
 };
