@@ -30,6 +30,7 @@ class ExperimentalHomePage extends Component {
                 height: 700,
                 overflowY: 'auto',
             },
+            
         };
         return (
             <div style={styles.root}>
@@ -37,6 +38,7 @@ class ExperimentalHomePage extends Component {
                 <GridList
                     cellHeight={180}
                     style={styles.gridList}
+                    padding={50}
                 >
                     {this.state.users.map((user, index) => {
                         console.log(user)
@@ -44,7 +46,6 @@ class ExperimentalHomePage extends Component {
                             user.submitted.map((submission, index) => {
                                 console.log(submission)
                                 return (
-                                    
                                         <GridTile
                                             key={submission._id}
                                             title={submission.name}
@@ -52,7 +53,7 @@ class ExperimentalHomePage extends Component {
                                             subtitle={<span>{submission.recipe}</span>}
                                         >
                                             <img src={submission.img} />
-                                           
+                                            {/* <p>{submission.submittedBy}</p>    */}
                                         </GridTile>
                                         
                                     

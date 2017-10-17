@@ -4,16 +4,20 @@ import styled from 'styled-components'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import HomePage from './components/HomePage'
 import LoginPage from './components/LoginPage'
-import UserPage from './components/UserPage'
 import CocktailPage from './components/CocktailPage'
 import NavBar from "./components/NavBar"
 import ExperimentalHomePage from "./components/ExperimentalHomePage"
+import "./App.css"
 class App extends Component {
   render() {
+    const style = {
+      background: "http://irishpubcompany.com/wp-content/uploads/2015/12/Capture1.jpg"
+    
+    };
     return ( 
     <MuiThemeProvider>
       <Router>
-          <div>
+          <div style={style}>
           <NavBar />
           <Switch>
             <Route exact path="/" component={ExperimentalHomePage}/>

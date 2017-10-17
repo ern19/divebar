@@ -2,6 +2,7 @@ import React from 'react';
 // import styled from "styled-components"
 import Cocktail from "./Cocktail"
 import {GridList, GridTile} from "material-ui/GridList"
+import RaisedButton from "material-ui/RaisedButton"
 const CocktailList = (props) => {
     const styles = {
         root: {
@@ -23,11 +24,14 @@ const CocktailList = (props) => {
             >
              {props.submitted.map((submission) => {
                  return (
+                    
                     <GridTile
                         key={submission._id}
                         title={submission.name}
+                        subtitle={<span>{submission.recipe}</span>}
                     >
                         <img src={submission.img} />
+                        
                     </GridTile>
                  )
              })}
