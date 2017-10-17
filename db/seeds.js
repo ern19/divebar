@@ -39,6 +39,7 @@ const lastWord = new Cocktail({
     submittedBy: "Tory",
     img: "https://i.imgur.com/JwzoV82.jpg",
     recipe: "Gin, Chartreuse, Maraschino, Lime",
+    recipeLink: "http://www.seriouseats.com/recipes/2008/01/cocktails-manhattan-recipe.html",
     comments: [aaronComment, toryComment]
 })
 const tomCollins = new Cocktail({
@@ -46,6 +47,7 @@ const tomCollins = new Cocktail({
     submittedBy: "Mackenzie",
     img: "https://i.imgur.com/NiL16VC.jpg",
     recipe: "Gin, Lemon, Simple Syrup, Bubbles",
+    recipeLink: "http://www.seriouseats.com/recipes/2008/08/tom-collins-recipe.html",
     comments: [aaronComment, toryComment]
 })
 
@@ -54,6 +56,7 @@ const manhattan = new Cocktail({
     submittedBy: "Aaron",
     img: "https://i.imgur.com/Rw4iIII.jpg",
     recipe: "Rye, Carpano Antica, Dolin Blanc, Cherry",
+    recipeLink: "http://www.seriouseats.com/recipes/2008/01/cocktails-manhattan-recipe.html",
     comments: [aaronComment, toryComment]
 })
 

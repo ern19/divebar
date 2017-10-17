@@ -32,9 +32,11 @@ const CocktailSchema = new Schema({
         type: String,
         required: true
     },
+    recipeLink: {
+        type: String
+    },
     comments: {
         type: [CommentSchema],
-        
     }
 })
 
