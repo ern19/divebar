@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import NewSubmissionForm from "./NewSubmissionForm"
-
+import { Link, Redirect } from "react-router-dom"
 import Cocktail from "./Cocktail"
 import axios from "axios"
 import { GridList, GridTile } from 'material-ui/GridList';
   
 class ExperimentalHomePage extends Component {
     state = {
-        users: []
+        users: [],
+        redirect: false,
+        userId: "",
+        submissionId: ""
     }
 
     async componentWillMount() {
@@ -17,6 +20,7 @@ class ExperimentalHomePage extends Component {
 
     }
 
+    
     render() {
         const styles = {
             root: {
@@ -32,6 +36,9 @@ class ExperimentalHomePage extends Component {
             },
             
         };
+        if (this.state.redirect) {
+            return <Redirect to={`/user/${this.state.userId}/submitted/${this.state.submissionId}`} />
+          }
         return (
             <div style={styles.root}>
                 {/* <NewSubmissionForm /> */}
@@ -41,7 +48,7 @@ class ExperimentalHomePage extends Component {
                     padding={50}
                 >
                     {this.state.users.map((user, index) => {
-                        console.log(user)
+                       
                         return (
                             user.submitted.map((submission, index) => {
                                 console.log(submission)
@@ -52,7 +59,7 @@ class ExperimentalHomePage extends Component {
                                             subtitle={<span>by <b>{submission.submittedBy}</b></span>}
                                             subtitle={<span>{submission.recipe}</span>}
                                         >
-                                            <img src={submission.img} />
+                                        <img onClick={() => this.setState({redirect: true, submissionId: submission._id, userId: user._id})} src={submission.img} />
                                             {/* <p>{submission.submittedBy}</p>    */}
                                         </GridTile>
                                         
@@ -66,7 +73,7 @@ class ExperimentalHomePage extends Component {
 
                     })}
                 </GridList>
-
+                
 
 
             </div>

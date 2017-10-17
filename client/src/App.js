@@ -7,22 +7,22 @@ import LoginPage from './components/LoginPage'
 import CocktailPage from './components/CocktailPage'
 import NavBar from "./components/NavBar"
 import ExperimentalHomePage from "./components/ExperimentalHomePage"
-import "./App.css"
+import SingleCocktail from "./components/SingleCocktail"
+
 class App extends Component {
   render() {
-    const style = {
-      background: "http://irishpubcompany.com/wp-content/uploads/2015/12/Capture1.jpg"
     
-    };
     return ( 
     <MuiThemeProvider>
       <Router>
-          <div style={style}>
+          <div>
           <NavBar />
           <Switch>
             <Route exact path="/" component={ExperimentalHomePage}/>
             <Route path="/login" component={LoginPage}/>
-            <Route path="/user/:userId" component={CocktailPage}/>
+             <Route path="/user/:userId/submitted/:submissionId" component={SingleCocktail}/>
+             <Route path="/user/:userId" component={CocktailPage}/>
+           
           </Switch>
           </div>
       </Router>
