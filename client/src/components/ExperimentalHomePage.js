@@ -26,8 +26,8 @@ class ExperimentalHomePage extends Component {
             },
             gridList: {
 
-                width: 500,
-                height: 450,
+                width: 800,
+                height: 700,
                 overflowY: 'auto',
             },
         };
@@ -44,14 +44,18 @@ class ExperimentalHomePage extends Component {
                             user.submitted.map((submission, index) => {
                                 console.log(submission)
                                 return (
-                                    <GridTile
-                                        key={submission._id}
-                                        title={submission.name}
-                                        subtitle={<span>by <b>{submission.submittedBy}</b></span>}
-                                    >
-                                        <img src={submission.img} />
-                                    </GridTile>
-
+                                    
+                                        <GridTile
+                                            key={submission._id}
+                                            title={submission.name}
+                                            subtitle={<span>by <b>{submission.submittedBy}</b></span>}
+                                            subtitle={<span>{submission.recipe}</span>}
+                                        >
+                                            <img src={submission.img} />
+                                           
+                                        </GridTile>
+                                        
+                                    
                                 )
 
                             }
