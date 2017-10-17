@@ -68,6 +68,13 @@ class NewSubmissionForm extends Component {
                             type="text" value={this.state.newSubmission.submittedBy}
                         />
                     </div>
+                    <div>
+                        <label htmlFor="recipeLink">Recipe Link</label>
+                        <input 
+                            onChange={this.handleChange} name="recipeLink"
+                            type="text" value={this.state.newSubmission.recipeLink}
+                        />
+                    </div>
                     <button>Submit</button>            
                 </form>
             </div>

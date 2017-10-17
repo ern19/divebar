@@ -31,7 +31,7 @@ class ExperimentalHomePage extends Component {
             gridList: {
 
                 width: 800,
-                height: 700,
+                // height: 700,
                 overflowY: 'auto',
             },
             
