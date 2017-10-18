@@ -12,13 +12,13 @@ class SingleCocktailUpdate extends Component {
         const { submissionId } = this.props.match.params
         const res = await axios.get(`/api/users/${userId}/submitted/${submissionId}`)
         this.setState({user: res.data})
-        console.log(this.state.user)
+        
     }
     
     handleChange = (event, submissionId) => {
         const attribute = event.target.name
         const clonedUser = {...this.state.user}
-       
+        console.log(event.target.value)
         clonedUser[attribute] = event.target.value
         // submission[attribute] = event.target.value
         this.setState({user: clonedUser})
@@ -29,13 +29,14 @@ class SingleCocktailUpdate extends Component {
         const  userId  = this.props.match.params.userId
         const id = this.props.match.params.submissionId
         const clonedUser = {...this.state.user}
-        
+        console.log("i'm alive")
         const res = await axios.patch(`/api/users/${userId}/submitted/${id}`, {
-            
+            submitted: clonedUser
             
         })
-        this.setState({user: res.data})
         console.log(res.data)
+        this.setState({user: res.data})
+        
     }
    
     render() {
