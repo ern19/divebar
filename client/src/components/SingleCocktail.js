@@ -43,7 +43,7 @@ class SingleCocktail extends Component {
                     
                     
                     <CardActions>
-                        <RaisedButton link={this.state.user.recipeLink}>View the recipe</RaisedButton> <br /><br/>
+                        <RaisedButton href={this.state.user.recipeLink}>View the recipe</RaisedButton> <br /><br/>
                         <RaisedButton onClick={this.deleteCocktail}>Dump it down the drain...</RaisedButton> />
                         
                     </CardActions>

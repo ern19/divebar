@@ -11,6 +11,7 @@ padding: 26px 5vw;
 width: 90vw;
 height: 25px;
 border-bottom: 1px solid rgba(0,0,0,.0975);
+margin-bottom: 20px;
 `
 const HeaderAnchor = styled.div`
 a{
