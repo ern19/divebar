@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import styled from 'styled-components'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
+import SingleCocktailUpdate from "./components/SingleCocktailUpdate"
 import LoginPage from './components/LoginPage'
 import CocktailPage from './components/CocktailPage'
 import NavBar from "./components/NavBar"
@@ -20,8 +20,9 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={ExperimentalHomePage}/>
             <Route path="/login" component={LoginPage}/>
-             <Route path="/user/:userId/submitted/:submissionId" component={SingleCocktail}/>
-             <Route path="/user/:userId" component={CocktailPage}/>
+            <Route path="/user/:userId/submitted/:submissionId/update" component={SingleCocktailUpdate}/>
+            <Route path="/user/:userId/submitted/:submissionId" component={SingleCocktail}/>
+            <Route path="/user/:userId" component={CocktailPage}/>
            
           </Switch>
           </div>

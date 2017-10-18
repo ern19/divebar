@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios"
+import {Link} from "react-router-dom"
 import RaisedButton from "material-ui/RaisedButton"
 import {Card, CardActions, CardHeader, CardMedia, CardText, CardTitle} from "material-ui/Card"
 class SingleCocktail extends Component {
@@ -12,14 +13,14 @@ class SingleCocktail extends Component {
         const { submissionId } = this.props.match.params
         const res = await axios.get(`/api/users/${userId}/submitted/${submissionId}`)
         this.setState({user: res.data})
-        console.log(this.state.user)
+        console.log(this.props.match.params)
     }
     deleteCocktail = async () => {
         const { userId } = this.props.match.params
         const id = this.state.user._id
         const res = await axios.delete(`/api/users/${userId}/submitted/${id}`)
         this.setState({user: res.data})
-        console.log("delete clicked")
+        
     }
     render() {
         const styles = {
@@ -44,8 +45,8 @@ class SingleCocktail extends Component {
                     
                     <CardActions>
                         <RaisedButton href={this.state.user.recipeLink}>View the recipe</RaisedButton> <br /><br/>
-                        <RaisedButton onClick={this.deleteCocktail}>Dump it down the drain...</RaisedButton> />
-                        
+                        <RaisedButton onClick={this.deleteCocktail}>Dump it down the drain...</RaisedButton> /><br /><br/>
+                        <Link to={`/user/${this.props.match.params.userId}/submitted/${this.props.match.params.submissionId}/update`}>edit this submission</Link>
                     </CardActions>
                 </Card>
             </div>
@@ -54,3 +55,4 @@ class SingleCocktail extends Component {
 }
 
 export default SingleCocktail;
+// ${this.state.user.submitted._id}/update

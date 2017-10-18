@@ -45,6 +45,7 @@ router.patch("/:id", async (req, res) => {
     submission.recipe = updatedSubmission.recipe
     submission.img = updatedSubmission.img
     submission.submittedBy = updatedSubmission.submittedBy
+    submission.recipeLink = updatedSubmission.recipeLink
     const saved = await user.save()
     res.json(saved)
 
