@@ -45,7 +45,7 @@ const lastWord = new Cocktail({
 const tomCollins = new Cocktail({
     name: "Tom Collins",
     submittedBy: "Mackenzie",
-    img: "https://i.imgurx.com/NiL16VC.jpg",
+    img: "https://i.imgur.com/NiL16VC.jpg",
     recipe: "Gin, Lemon, Simple Syrup, Bubbles",
     recipeLink: "http://www.seriouseats.com/recipes/2008/08/tom-collins-recipe.html",
     comments: [aaronComment, toryComment]

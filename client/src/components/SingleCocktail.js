@@ -13,7 +13,7 @@ class SingleCocktail extends Component {
         const { submissionId } = this.props.match.params
         const res = await axios.get(`/api/users/${userId}/submitted/${submissionId}`)
         this.setState({user: res.data})
-        console.log(this.props.match.params)
+        
     }
     deleteCocktail = async () => {
         const { userId } = this.props.match.params

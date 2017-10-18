@@ -10,19 +10,11 @@ class ExperimentalHomePage extends Component {
         users: [],
         redirect: false,
         userId: "",
-        submissionId: "",
-        search: ""
+        submissionId: "",      
     }
-
     async componentWillMount() {
-        const res = await axios.get("/api/users/")
-        console.log(res.data)
+        const res = await axios.get("/api/users/")        
         this.setState({ users: res.data })
-
-    }
-
-    updateSearch(event) {
-        this.setState({search: event.target.value})
     }
     render() {
         const styles = {
@@ -36,25 +28,26 @@ class ExperimentalHomePage extends Component {
                 width: 800,
                 // height: 700,
                 overflowY: 'auto',
-            },
-            
+            },           
         };
         if (this.state.redirect) {
             return <Redirect to={`/user/${this.state.userId}/submitted/${this.state.submissionId}`} />
-          }
+        }
+        
         return (
             <div style={styles.root}>
-                {/* <NewSubmissionForm /> */}
                 <GridList
                     cellHeight={180}
                     style={styles.gridList}
                     padding={50}
                 >
-                    {this.state.users.map((user, index) => {
-                       
+                    {this.state.users.map((user, index) => {                      
                         return (
                             user.submitted.map((submission, index) => {
-                                console.log(submission)
+                               
+                                let filteredSubmissions = submission.recipe.toLowerCase()
+                                console.log(this.state.search)
+                                
                                 return (
                                         <GridTile
                                             key={submission._id}
@@ -64,27 +57,17 @@ class ExperimentalHomePage extends Component {
                                         >
                                         <img onClick={() => this.setState({redirect: true, submissionId: submission._id, userId: user._id})} src={submission.img} />
                                             {/* <p>{submission.submittedBy}</p>    */}
-                                        </GridTile>
-                                        
-                                    
+                                        </GridTile>   
                                 )
-
                             }
                             )
                         )
-
-
                     })}
                 </GridList>
-                
-
-
             </div>
         );
     }
 }
-
-
 export default ExperimentalHomePage;
 
 {/* <Cocktail 
@@ -93,3 +76,4 @@ recipe={submission.recipe}
 submittedBy={submission.submittedBy}
 img={submission.img}
 /> */}
+// 
