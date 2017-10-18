@@ -4,7 +4,7 @@ home.
 
 v1+: A full on social network, like Untappd for cocktail lovers.
 
-Deployed on Heroku @:
+Deployed on Heroku @:https://divebar-app.herokuapp.com/
 
 Link to Trello board: https://trello.com/b/8idmcP6W/divebar-social-cocktail-app
 
