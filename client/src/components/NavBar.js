@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Link } from "react-router-dom"
 import styled from "styled-components"
 
@@ -38,8 +38,16 @@ input{
   text-align: center;
 }`
 
-const NavBar = () => {
-
+class NavBar extends Component {
+  state = {
+      search: ""
+  }
+  
+  handleChange = (event) => {
+        this.setState({search: event.target.value})
+  }
+  render() {
+    
     return (
         <Nav>
            
@@ -47,7 +55,7 @@ const NavBar = () => {
                 <Link to="/">divebar.</Link>
             </HeaderAnchor>
             <SearchContainer>
-            <input type="text" placeholder="Search"/>
+            <input type="text" placeholder="Search" onChange={this.handleChange}/>
             </SearchContainer>
             <div>
                 <Link to="/login">Log In</Link>
@@ -56,5 +64,6 @@ const NavBar = () => {
         </Nav>
     );
 };
+}
 
 export default NavBar;

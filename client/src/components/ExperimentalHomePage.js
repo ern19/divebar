@@ -10,7 +10,8 @@ class ExperimentalHomePage extends Component {
         users: [],
         redirect: false,
         userId: "",
-        submissionId: ""
+        submissionId: "",
+        search: ""
     }
 
     async componentWillMount() {
@@ -20,7 +21,9 @@ class ExperimentalHomePage extends Component {
 
     }
 
-    
+    updateSearch(event) {
+        this.setState({search: event.target.value})
+    }
     render() {
         const styles = {
             root: {
