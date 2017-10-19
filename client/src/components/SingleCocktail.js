@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios"
 import {Link} from "react-router-dom"
 import RaisedButton from "material-ui/RaisedButton"
-import {Card, CardActions, CardHeader, CardMedia, CardText, CardTitle} from "material-ui/Card"
+import {Card, CardActions, CardHeader, CardMedia, CardTitle} from "material-ui/Card"
 class SingleCocktail extends Component {
     state={
         user: {}
@@ -13,7 +13,7 @@ class SingleCocktail extends Component {
         const { submissionId } = this.props.match.params
         const res = await axios.get(`/api/users/${userId}/submitted/${submissionId}`)
         this.setState({user: res.data})
-        
+        console.log(this.state.user.comments)
     }
     deleteCocktail = async () => {
         const { userId } = this.props.match.params
@@ -41,7 +41,6 @@ class SingleCocktail extends Component {
                     >
                     <img src={this.state.user.img} alt="" />
                     </CardMedia>
-                    
                     
                     <CardActions>
                         <RaisedButton href={this.state.user.recipeLink}>View the recipe</RaisedButton> <br /><br/>

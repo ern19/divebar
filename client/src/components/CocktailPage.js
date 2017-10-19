@@ -76,6 +76,3 @@ class CocktailPage extends Component {
 
 export default CocktailPage;  
 
-{/* handleChange={this.handleChange}
-                    deleteCocktail={this.deleteCocktail}
-                    updateCocktail={this.updateCocktail} */}

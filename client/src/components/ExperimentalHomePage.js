@@ -1,20 +1,43 @@
 import React, { Component } from 'react';
-import NewSubmissionForm from "./NewSubmissionForm"
-import { Link, Redirect } from "react-router-dom"
-import Cocktail from "./Cocktail"
+import { Redirect } from "react-router-dom"
+
 import axios from "axios"
 import { GridList, GridTile } from 'material-ui/GridList';
-  
+import styled from "styled-components"
+
+const background = styled.div`
+background-color: 
+`
+const SearchContainer = styled.div`
+background: #fafafa;
+border: 1px solid #dbdbdb;
+width: 25%;
+padding: 7px;
+border-radius: 3px;
+color: #999;
+
+margin: 0 auto;
+input{
+  border: none;
+  font-weight: 300;
+  background: transparent;
+  text-align: center;
+}`
+
 class ExperimentalHomePage extends Component {
     state = {
         users: [],
         redirect: false,
         userId: "",
-        submissionId: "",      
+        submissionId: "",
+        search: ""      
     }
     async componentWillMount() {
         const res = await axios.get("/api/users/")        
         this.setState({ users: res.data })
+    }
+    handleChange = (event) => {
+        this.setState({search: event.target.value})
     }
     render() {
         const styles = {
@@ -35,6 +58,10 @@ class ExperimentalHomePage extends Component {
         }
         
         return (
+            <div><SearchContainer>
+                 <input type="text" placeholder="Search" onChange={this.handleChange}/>
+                 </SearchContainer>
+            
             <div style={styles.root}>
                 <GridList
                     cellHeight={180}
@@ -42,21 +69,21 @@ class ExperimentalHomePage extends Component {
                     padding={50}
                 >
                     {this.state.users.map((user, index) => {                      
+                         console.log(user.submitted) 
                         return (
-                            user.submitted.map((submission, index) => {
-                               
-                                let filteredSubmissions = submission.recipe.toLowerCase()
-                                console.log(this.state.search)
-                                
+                            
+                            user.submitted.map((submission, index) => { 
+                                                    
                                 return (
+                                    
                                         <GridTile
                                             key={submission._id}
                                             title={submission.name}
-                                            subtitle={<span>by <b>{submission.submittedBy}</b></span>}
+                                            
                                             subtitle={<span>{submission.recipe}</span>}
                                         >
-                                        <img onClick={() => this.setState({redirect: true, submissionId: submission._id, userId: user._id})} src={submission.img} />
-                                            {/* <p>{submission.submittedBy}</p>    */}
+                                        <img alt={submission.name} onClick={() => this.setState({redirect: true, submissionId: submission._id, userId: user._id})} src={submission.img} />
+                                           
                                         </GridTile>   
                                 )
                             }
@@ -65,15 +92,17 @@ class ExperimentalHomePage extends Component {
                     })}
                 </GridList>
             </div>
+            </div>
         );
     }
 }
 export default ExperimentalHomePage;
 
-{/* <Cocktail 
-name={submission.name}
-recipe={submission.recipe}
-submittedBy={submission.submittedBy}
-img={submission.img}
-/> */}
-// 
+
+// let filteredSubmissions = user.submitted.filter(
+//                                 (submission) => {
+//                                     return submission.recipe.toLowerCase().indexOf(
+//                                         this.state.search.toLowerCase()) !== -1;
+//                                     )
+//                                 }
+//                             ) 

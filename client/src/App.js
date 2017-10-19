@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
-import styled from 'styled-components'
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import SingleCocktailUpdate from "./components/SingleCocktailUpdate"
 import LoginPage from './components/LoginPage'
@@ -8,7 +7,7 @@ import CocktailPage from './components/CocktailPage'
 import NavBar from "./components/NavBar"
 import ExperimentalHomePage from "./components/ExperimentalHomePage"
 import SingleCocktail from "./components/SingleCocktail"
-import { Form } from 'muicss/react'
+
 class App extends Component {
   render() {
     

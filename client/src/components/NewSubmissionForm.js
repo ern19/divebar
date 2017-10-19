@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios"
 import {Redirect} from 'react-router-dom'
-import styled from "styled-components"
 import TextField from "material-ui/TextField"
 class NewSubmissionForm extends Component {
 
@@ -14,6 +13,7 @@ class NewSubmissionForm extends Component {
         },
         redirectToUserPage: false,
         userId: this.props.userId
+        
     }
 
     handleChange = (event) => {
@@ -43,35 +43,35 @@ class NewSubmissionForm extends Component {
                 <h4>Share your favorite</h4>
                 <form onSubmit={this.handleSubmit}>
                     <div>
-                        <label htmlFor="name">Cocktail Name</label>
+                        <label htmlFor="name">Cocktail Name:  </label>
                         <TextField
                             onChange={this.handleChange} name="name"
                             type="text" value={this.state.newSubmission.name}
                         />
                     </div>
                     <div>
-                        <label htmlFor="img">Image Link</label>
+                        <label htmlFor="img">Image Link:  </label>
                         <TextField 
                             onChange={this.handleChange} name="img"
                             type="text" value={this.state.newSubmission.img}
                         />
                     </div>
                     <div>
-                        <label htmlFor="recipe">Recipe</label>
+                        <label htmlFor="recipe">Recipe:  </label>
                         <TextField
                             onChange={this.handleChange} name="recipe"
                             type="text" value={this.state.newSubmission.recipe}
                         />
                     </div>
                     <div>
-                        <label htmlFor="submittedBy">Submitted By</label>
+                        <label htmlFor="submittedBy">Submitted By:  </label>
                         <TextField
                             onChange={this.handleChange} name="submittedBy"
                             type="text" value={this.state.newSubmission.submittedBy}
                         />
                     </div>
                     <div>
-                        <label htmlFor="recipeLink">Recipe Link</label>
+                        <label htmlFor="recipeLink">Recipe Link:  </label>
                         <TextField
                             onChange={this.handleChange} name="recipeLink"
                             type="text" value={this.state.newSubmission.recipeLink}

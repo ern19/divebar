@@ -21,31 +21,9 @@ a{
 }
 
 `
-const SearchContainer = styled.div`
-background: #fafafa;
-border: 1px solid #dbdbdb;
-width: 25%;
-padding: 7px;
-border-radius: 3px;
-color: #999;
-svg{
-  margin-bottom: 5px;
-}
-input{
-  border: none;
-  font-weight: 300;
-  background: transparent;
-  text-align: center;
-}`
 
 class NavBar extends Component {
-  state = {
-      search: ""
-  }
-  
-  handleChange = (event) => {
-        this.setState({search: event.target.value})
-  }
+
   render() {
     
     return (
@@ -54,9 +32,7 @@ class NavBar extends Component {
             <HeaderAnchor>
                 <Link to="/">divebar.</Link>
             </HeaderAnchor>
-            <SearchContainer>
-            <input type="text" placeholder="Search" onChange={this.handleChange}/>
-            </SearchContainer>
+            
             <div>
                 <Link to="/login">Log In</Link>
             </div>
