@@ -3,24 +3,32 @@ import axios from "axios"
 import {Link} from "react-router-dom"
 import RaisedButton from "material-ui/RaisedButton"
 import {Card, CardActions, CardHeader, CardMedia, CardTitle} from "material-ui/Card"
+import SingleCocktailUpdate from './SingleCocktailUpdate'
 class SingleCocktail extends Component {
     state={
-        user: {}
+        user: {},
+        showUpdateForm: false
+
     }
 
     async componentWillMount () {
+        this.getCocktail()
+    }
+
+    getCocktail = async() => {
         const { userId } = this.props.match.params
         const { submissionId } = this.props.match.params
         const res = await axios.get(`/api/users/${userId}/submitted/${submissionId}`)
         this.setState({user: res.data})
-        console.log(this.state.user.comments)
     }
     deleteCocktail = async () => {
         const { userId } = this.props.match.params
         const id = this.state.user._id
         const res = await axios.delete(`/api/users/${userId}/submitted/${id}`)
         this.setState({user: res.data})
-        
+    }
+    showUpdateForm = () => {
+        this.setState({showUpdateForm: !this.state.showUpdateForm})
     }
     render() {
         const styles = {
@@ -43,11 +51,17 @@ class SingleCocktail extends Component {
                     </CardMedia>
                     
                     <CardActions>
-                        <RaisedButton href={this.state.user.recipeLink}>View the recipe</RaisedButton> <br /><br/>
-                        <RaisedButton onClick={this.deleteCocktail}>Dump it down the drain...</RaisedButton> /><br /><br/>
-                        <Link to={`/user/${this.props.match.params.userId}/submitted/${this.props.match.params.submissionId}/update`}>edit this submission</Link>
+                        <RaisedButton href={this.state.user.recipeLink} label='View the recipe'/>
+                        <RaisedButton onClick={this.deleteCocktail} label='Dump it down the drain...' />
+                        <RaisedButton label='Edit this submission' onClick={this.showUpdateForm}/>
                     </CardActions>
                 </Card>
+                {this.state.showUpdateForm ? <SingleCocktailUpdate userId={this.props.match.params.userId} 
+                                                                   submissionId={this.props.match.params.submissionId} 
+                                                                   getCocktail={this.getCocktail}
+                                                                   showUpdateForm={this.state.showUpdateForm}
+                                                                   user={this.state.user}
+                                                                   /> : null}
             </div>
         );
     }

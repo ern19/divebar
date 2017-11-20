@@ -3,18 +3,21 @@ import axios from 'axios'
 import TextField from "material-ui/TextField"
 class SingleCocktailUpdate extends Component {
     state = {
-        user: {}
-        
+        user: {}   
     }
 
     async componentWillMount () {
-        const { userId } = this.props.match.params
-        const { submissionId } = this.props.match.params
-        const res = await axios.get(`/api/users/${userId}/submitted/${submissionId}`)
-        this.setState({user: res.data})
-        
+        console.log(this.props)
+        this.getCocktail()
+
     }
     
+    getCocktail = async() => {
+        const userId = this.props.userId
+        const submissionId = this.props.submissionId
+        const res = await axios.get(`/api/users/${userId}/submitted/${submissionId}`)
+        this.setState({user: res.data})
+    }
     handleChange = (event, submissionId) => {
         const attribute = event.target.name
         const clonedUser = {...this.state.user}
@@ -26,17 +29,16 @@ class SingleCocktailUpdate extends Component {
 
     updateCocktail = async (event) => {
         event.preventDefault()
-        const  userId  = this.props.match.params.userId
-        const id = this.props.match.params.submissionId
+        const  userId  =  this.props.userId
+        const id = this.props.submissionId
         const clonedUser = {...this.state.user}
         console.log("i'm alive")
         const res = await axios.patch(`/api/users/${userId}/submitted/${id}`, {
-            submitted: clonedUser
-            
+            submitted: clonedUser    
         })
         console.log(res.data)
         this.setState({user: res.data})
-        
+        this.props.getCocktail()     
     }
    
     render() {
