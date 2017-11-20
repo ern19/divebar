@@ -4,6 +4,10 @@ import {Link} from "react-router-dom"
 import RaisedButton from "material-ui/RaisedButton"
 import {Card, CardActions, CardHeader, CardMedia, CardTitle} from "material-ui/Card"
 import SingleCocktailUpdate from './SingleCocktailUpdate'
+
+const buttonStyle = {
+    padding: '3px'
+}
 class SingleCocktail extends Component {
     state={
         user: {},
@@ -52,9 +56,9 @@ class SingleCocktail extends Component {
                     
                     <CardActions>
                         <div style={{textAlign: 'center'}}>
-                            <RaisedButton href={this.state.user.recipeLink} label='View the recipe'/>
-                            <RaisedButton onClick={this.deleteCocktail} label='Dump it down the drain...' />
-                            <RaisedButton label='Edit this submission' onClick={this.showUpdateForm}/>
+                            <RaisedButton href={this.state.user.recipeLink} label='View the recipe' style={{buttonStyle}}/>
+                            <RaisedButton onClick={this.deleteCocktail} label='Dump it down the drain...'  style={{buttonStyle}}/>
+                            <RaisedButton label='Edit this submission' onClick={this.showUpdateForm} style={{buttonStyle}}/>
                         </div>
                     </CardActions>
                 </Card>
