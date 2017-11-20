@@ -69,11 +69,8 @@ class ExperimentalHomePage extends Component {
                     padding={50}
                 >
                     {this.state.users.map((user, index) => {                      
-                         
                         return (
-                            
-                            user.submitted.map((submission, index) => { 
-                                console.log(submission)         
+                            user.submitted.map((submission, index) => {         
                                 return (
                                     
                                         <GridTile

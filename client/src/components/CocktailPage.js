@@ -20,14 +20,13 @@ class CocktailPage extends Component {
     }
 
     async componentWillMount () {
+        this.getUsersCocktails()
+    }
+
+    getUsersCocktails = async() => {
         const { userId } = this.props.match.params
         const res = await axios.get(`/api/users/${userId}`)
         this.setState({user: res.data})
-        console.log(this.state.user)
-    }
-
-    getUsersCocktails = () => {
-        
     }
     createNewCocktail = async () => {
         const { userId } = this.props.match.params
@@ -72,7 +71,8 @@ class CocktailPage extends Component {
                 <CocktailList submitted={this.state.user.submitted} 
                 />
                 <RaisedButton label='Add New Recipe' onClick={this.showForm}/>
-                {this.state.showForm ? <NewSubmissionForm userId={this.props.match.params.userId}/> : null}
+                {this.state.showForm ? <NewSubmissionForm userId={this.props.match.params.userId}
+                                        getUsersCocktails={this.getUsersCocktails}/> : null}
             </CenterContent>
         );
     }

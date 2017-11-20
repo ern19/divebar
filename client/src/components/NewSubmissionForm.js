@@ -31,6 +31,7 @@ class NewSubmissionForm extends Component {
             "submitted": this.state.newSubmission
         })
         this.setState({redirectToUserPage: true, userId: res.data._id})
+        this.props.getUsersCocktails()
     }
     
    
