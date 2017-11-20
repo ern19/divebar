@@ -32,13 +32,12 @@ class SingleCocktailUpdate extends Component {
         const  userId  =  this.props.userId
         const id = this.props.submissionId
         const clonedUser = {...this.state.user}
-        console.log("i'm alive")
         const res = await axios.patch(`/api/users/${userId}/submitted/${id}`, {
             submitted: clonedUser    
         })
-        console.log(res.data)
         this.setState({user: res.data})
-        this.props.getCocktail()     
+        this.props.getCocktail()
+        this.props.showUpdateForm()     
     }
    
     render() {

@@ -59,7 +59,7 @@ class SingleCocktail extends Component {
                 {this.state.showUpdateForm ? <SingleCocktailUpdate userId={this.props.match.params.userId} 
                                                                    submissionId={this.props.match.params.submissionId} 
                                                                    getCocktail={this.getCocktail}
-                                                                   showUpdateForm={this.state.showUpdateForm}
+                                                                   showUpdateForm={this.showUpdateForm}
                                                                    user={this.state.user}
                                                                    /> : null}
             </div>
