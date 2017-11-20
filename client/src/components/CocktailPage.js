@@ -4,6 +4,7 @@ import axios from "axios"
 import CocktailList from "./CocktailList"
 import NewSubmissionForm from "./NewSubmissionForm"
 import styled from "styled-components"
+import RaisedButton from 'material-ui/RaisedButton'
 
 const CenterContent = styled.div`
     text-align: center;
@@ -14,7 +15,8 @@ class CocktailPage extends Component {
             userName: "",
             password: "",
             submitted: []
-        }
+        },
+        showForm: false
     }
 
     async componentWillMount () {
@@ -24,14 +26,19 @@ class CocktailPage extends Component {
         console.log(this.state.user)
     }
 
+    getUsersCocktails = () => {
+        
+    }
     createNewCocktail = async () => {
         const { userId } = this.props.match.params
         const res = await axios.post(`/api/users/${userId}/submitted`, {})
         console.log(res.data)
         // this.setState({user: res.data})
     }
-
     
+    showForm = () => {
+        this.setState({showForm: !this.state.showForm})
+    }
 
     handleChange = (event, submissionId) => {
         const attribute = event.target.name
@@ -61,14 +68,11 @@ class CocktailPage extends Component {
                 <div>
                     <h1>{this.state.user.userName}'s Submissions</h1>
                 </div>
-                
-                   
-                    <NewSubmissionForm userId={this.props.match.params.userId}/>
-                
-                <CocktailList submitted={this.state.user.submitted}
-                  
+                        
+                <CocktailList submitted={this.state.user.submitted} 
                 />
-            
+                <RaisedButton label='Add New Recipe' onClick={this.showForm}/>
+                {this.state.showForm ? <NewSubmissionForm userId={this.props.match.params.userId}/> : null}
             </CenterContent>
         );
     }

@@ -51,9 +51,11 @@ class SingleCocktail extends Component {
                     </CardMedia>
                     
                     <CardActions>
-                        <RaisedButton href={this.state.user.recipeLink} label='View the recipe'/>
-                        <RaisedButton onClick={this.deleteCocktail} label='Dump it down the drain...' />
-                        <RaisedButton label='Edit this submission' onClick={this.showUpdateForm}/>
+                        <div style={{textAlign: 'center'}}>
+                            <RaisedButton href={this.state.user.recipeLink} label='View the recipe'/>
+                            <RaisedButton onClick={this.deleteCocktail} label='Dump it down the drain...' />
+                            <RaisedButton label='Edit this submission' onClick={this.showUpdateForm}/>
+                        </div>
                     </CardActions>
                 </Card>
                 {this.state.showUpdateForm ? <SingleCocktailUpdate userId={this.props.match.params.userId} 
