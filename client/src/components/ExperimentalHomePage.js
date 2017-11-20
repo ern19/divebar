@@ -30,7 +30,7 @@ class ExperimentalHomePage extends Component {
         redirect: false,
         userId: "",
         submissionId: "",
-        search: ""      
+            
     }
     async componentWillMount() {
         const res = await axios.get("/api/users/")        
@@ -69,11 +69,11 @@ class ExperimentalHomePage extends Component {
                     padding={50}
                 >
                     {this.state.users.map((user, index) => {                      
-                         console.log(user.submitted) 
+                         
                         return (
                             
                             user.submitted.map((submission, index) => { 
-                                                    
+                                console.log(submission)         
                                 return (
                                     
                                         <GridTile
