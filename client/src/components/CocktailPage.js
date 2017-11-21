@@ -67,12 +67,12 @@ class CocktailPage extends Component {
                 <div>
                     <h1>{this.state.user.userName}'s Submissions</h1>
                 </div>
-                        
-                <CocktailList submitted={this.state.user.submitted} 
-                />
-                <RaisedButton label='Add New Recipe' onClick={this.showForm}/>
+                <RaisedButton label='Add New Recipe' onClick={this.showForm} style={{marginBottom: '20px'}}/>
                 {this.state.showForm ? <NewSubmissionForm userId={this.props.match.params.userId}
                                         getUsersCocktails={this.getUsersCocktails}/> : null}
+                <CocktailList submitted={this.state.user.submitted} 
+                />
+                
             </CenterContent>
         );
     }

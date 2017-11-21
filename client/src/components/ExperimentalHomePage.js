@@ -15,8 +15,8 @@ width: 25%;
 padding: 7px;
 border-radius: 3px;
 color: #999;
+margin: auto;
 
-margin: 0 auto;
 input{
   border: none;
   font-weight: 300;
@@ -49,24 +49,23 @@ class ExperimentalHomePage extends Component {
             gridList: {
 
                 width: 800,
-                // height: 700,
+                padding: '30px',
                 overflowY: 'auto',
             },           
         };
         if (this.state.redirect) {
             return <Redirect to={`/user/${this.state.userId}/submitted/${this.state.submissionId}`} />
         }
-        
         return (
             <div><SearchContainer>
                  <input type="text" placeholder="Search" onChange={this.handleChange}/>
                  </SearchContainer>
-            
             <div style={styles.root}>
                 <GridList
                     cellHeight={180}
                     style={styles.gridList}
-                    padding={50}
+                    padding={20}
+                    
                 >
                     {this.state.users.map((user, index) => {                      
                         return (

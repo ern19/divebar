@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from "axios"
 import {Redirect} from 'react-router-dom'
+import TextField from 'material-ui/TextField'
+import RaisedButton from 'material-ui/RaisedButton'
+
 class SignUpForm extends Component {
     state = {
         newUser: {
@@ -37,19 +40,20 @@ class SignUpForm extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <label htmlFor="userName">User Name</label>
-                        <input
+                        <TextField
                             onChange={this.handleChange} name="userName"
                             type="text" value={this.state.newUser.userName}
                         />
                     </div>
                     <div>
                         <label htmlFor="password">Password</label>
-                        <input 
+                        <TextField
                             onChange={this.handleChange} name="password"
                             type="text" value={this.state.newUser.password}
                         />
                     </div>
-                    <button>Sign Up</button>            
+                    <button>Sign Up</button>
+                    <RaisedButton onClick={this.handleSubmit} label='create account'/>         
                 </form>
             </div>
         );
