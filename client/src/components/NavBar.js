@@ -21,6 +21,21 @@ a{
 }
 
 `
+const SearchContainer = styled.div`
+background: #fafafa;
+border: 1px solid #dbdbdb;
+width: 25%;
+padding: 7px;
+border-radius: 3px;
+color: #999;
+margin: auto;
+
+input{
+  border: none;
+  font-weight: 300;
+  background: transparent;
+  text-align: center;
+}`
 
 class NavBar extends Component {
 
@@ -32,6 +47,10 @@ class NavBar extends Component {
             <HeaderAnchor>
                 <Link to="/">divebar.</Link>
             </HeaderAnchor>
+            
+            <SearchContainer>
+                    <input type="text" placeholder="search by ingredient" onChange={this.handleChange}/>
+            </SearchContainer>
             
             <div>
                 <Link to="/login">Log In</Link>

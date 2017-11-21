@@ -8,21 +8,7 @@ import styled from "styled-components"
 const background = styled.div`
 background-color: 
 `
-const SearchContainer = styled.div`
-background: #fafafa;
-border: 1px solid #dbdbdb;
-width: 25%;
-padding: 7px;
-border-radius: 3px;
-color: #999;
-margin: auto;
 
-input{
-  border: none;
-  font-weight: 300;
-  background: transparent;
-  text-align: center;
-}`
 
 class ExperimentalHomePage extends Component {
     state = {
@@ -57,10 +43,11 @@ class ExperimentalHomePage extends Component {
             return <Redirect to={`/user/${this.state.userId}/submitted/${this.state.submissionId}`} />
         }
         return (
-            <div><SearchContainer>
-                 <input type="text" placeholder="Search" onChange={this.handleChange}/>
-                 </SearchContainer>
+            <div>
+                
+            <h2 style={{textAlign: 'center'}}>all recipes</h2>
             <div style={styles.root}>
+
                 <GridList
                     cellHeight={180}
                     style={styles.gridList}
